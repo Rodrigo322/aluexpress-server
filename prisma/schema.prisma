@@ -18,6 +18,9 @@ model User {
   phone    String
   whatsapp String
 
+  images ImagensUser[]
+  houses House[]
+
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
@@ -37,8 +40,37 @@ model House {
   contract_period                Int?
   water_and_electricity_included Boolean @default(false)
 
+  Images ImagesHouse[]
+
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   @@map("houses")
+}
+
+model ImagesHouse {
+  id      String  @id @default(cuid())
+  url     String
+  House   House?  @relation(fields: [houseId], references: [id])
+  houseId String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("imagens_house")
+}
+
+model ImagensUser {
+  id     String  @id @default(cuid())
+  url    String
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("imagens_user")
 }
