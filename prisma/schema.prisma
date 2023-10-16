@@ -23,3 +23,22 @@ model User {
 
   @@map("users")
 }
+
+model House {
+  id                             String  @id @default(cuid())
+  address                        String
+  latitude                       Float
+  longitude                      Float
+  price                          String
+  description                    String
+  footage                        Decimal
+  status                         Boolean @default(true)
+  contract                       Boolean @default(false)
+  contract_period                Int?
+  water_and_electricity_included Boolean @default(false)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("houses")
+}
