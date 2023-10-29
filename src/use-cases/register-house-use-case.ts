@@ -1,7 +1,7 @@
 import { House } from "@prisma/client";
 
 import { IHouseRepository } from "../repositories/house-repository";
-import { UserRepository } from "../repositories/user-repository";
+import { IUserRepository } from "../repositories/user-repository";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error";
 
 interface RegisterHouseUseCaseRequest {
@@ -25,7 +25,7 @@ interface RegisterHouseUseCaseResponse {
 export class RegisterHouseUseCase {
   constructor(
     private houseRepository: IHouseRepository,
-    private userRepository: UserRepository
+    private userRepository: IUserRepository
   ) {}
 
   async execute({

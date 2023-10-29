@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { UserRepository } from "../repositories/user-repository";
+import { IUserRepository } from "../repositories/user-repository";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error";
 
 interface GetAllUsersUseCaseResponse {
@@ -7,7 +7,7 @@ interface GetAllUsersUseCaseResponse {
 }
 
 export class GetAllUsersUseCase {
-  constructor(private userRepository: UserRepository) {}
+  constructor(private userRepository: IUserRepository) {}
 
   async execute({}): Promise<GetAllUsersUseCaseResponse> {
     const users = await this.userRepository.findMany();
