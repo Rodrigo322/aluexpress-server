@@ -43,7 +43,7 @@ export class RegisterHouseUseCase {
   }: RegisterHouseUseCaseRequest): Promise<RegisterHouseUseCaseResponse> {
     const user = await this.userRepository.findById(userId);
 
-    if (user) {
+    if (!user) {
       throw new ResourceNotFoundError();
     }
 
