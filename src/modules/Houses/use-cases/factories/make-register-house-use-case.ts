@@ -1,5 +1,5 @@
+import { PrismaUserRepository } from "../../../Users/repositories/prisma/prisma-user-repository";
 import { PrismaHouseRepository } from "../../repositories/prisma/prisma-house-repository";
-import { PrismaUserRepository } from "../../repositories/prisma/prisma-user-repository";
 import { RegisterHouseUseCase } from "../register-house-use-case";
 
 export function makeRegisterHouseUseCase() {

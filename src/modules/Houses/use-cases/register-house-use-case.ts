@@ -1,8 +1,8 @@
 import { House } from "@prisma/client";
 
 import { IHouseRepository } from "../repositories/house-repository";
-import { IUserRepository } from "../repositories/user-repository";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error";
+import { IUserRepository } from "../../Users/repositories/user-repository";
 
 interface RegisterHouseUseCaseRequest {
   userId: string;

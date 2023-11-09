@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 
-import { usersRoutes } from "./http/controllers/users/routes";
-import { housesRoutes } from "./http/controllers/houses/routes";
+import { usersRoutes } from "./modules/Users/http/controllers/routes";
+import { housesRoutes } from "./modules/Houses/controllers/routes";
 
 const app = express();
 

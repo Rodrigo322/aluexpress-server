@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
 
 import { IHouseRepository } from "../house-repository";
-import { prisma } from "../../database/prisma";
+import { prisma } from "../../../../database/prisma";
 import { ResourceNotFoundError } from "../../use-cases/errors/resource-not-found-error";
 
 export class PrismaHouseRepository implements IHouseRepository {

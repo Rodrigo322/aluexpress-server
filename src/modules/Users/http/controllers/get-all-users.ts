@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { ResourceNotFoundError } from "../../../use-cases/errors/resource-not-found-error";
-import { makeGetAllUsersUseCase } from "../../../use-cases/factories/make-get-all-users-use-case";
+import { ResourceNotFoundError } from "../../use-cases/errors/resource-not-found-error";
+import { makeGetAllUsersUseCase } from "../../use-cases/factories/make-get-all-users-use-case";
 
 export async function getAllUser(request: Request, response: Response) {
   try {

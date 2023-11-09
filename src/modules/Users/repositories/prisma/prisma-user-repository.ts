@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
 
-import { prisma } from "../../database/prisma";
 import { IUserRepository } from "../user-repository";
+import { prisma } from "../../../../database/prisma";
 
 export class PrismaUserRepository implements IUserRepository {
   async findById(id: string) {

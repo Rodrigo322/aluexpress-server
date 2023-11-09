@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { makeRegisterUseCase } from "../../../use-cases/factories/make-register-use-case";
-import { UserAlreadyExistsError } from "../../../use-cases/errors/user-already-exists-error";
+import { makeRegisterUseCase } from "../../use-cases/factories/make-register-use-case";
+import { UserAlreadyExistsError } from "../../use-cases/errors/user-already-exists-error";
 
 export async function register(request: Request, response: Response) {
   const { name, email, password, phone, whatsapp } = request.body;
