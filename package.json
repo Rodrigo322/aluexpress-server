@@ -2,9 +2,15 @@
   "name": "aluexpress-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node build/server.js",
+    "vercel-build": "npx prisma generate && npx prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
