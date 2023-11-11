@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import { makeRegisterHouseUseCase } from "../../../modules/Houses/use-cases/factories/make-register-house-use-case";
-import { ResourceNotFoundError } from "../use-cases/errors/resource-not-found-error";
+import { makeRegisterHouseUseCase } from "../../use-cases/factories/make-register-house-use-case";
+import { ResourceNotFoundError } from "../../use-cases/errors/resource-not-found-error";
 
 export async function registerHouse(request: Request, response: Response) {
   const {

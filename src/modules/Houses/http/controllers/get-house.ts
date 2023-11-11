@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { makeGetHouseUseCase } from "../../../modules/Houses/use-cases/factories/make-get-house-use-case";
-import { ResourceNotFoundError } from "../use-cases/errors/resource-not-found-error";
+import { makeGetHouseUseCase } from "../../use-cases/factories/make-get-house-use-case";
+import { ResourceNotFoundError } from "../../use-cases/errors/resource-not-found-error";
 
 export async function GetHouse(request: Request, response: Response) {
   const { houseId } = request.params;
