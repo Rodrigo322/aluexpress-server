@@ -14,7 +14,13 @@ export default class AuthMiddleware {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
-    jwt.verify(token, process.env.SECRET_KEY || "dev", (err, decoded) => {
+    const SECRET_KEY = process.env.SECRET_KEY;
+
+    if (!SECRET_KEY) {
+      throw new Error("Invalid secret key");
+    }
+
+    jwt.verify(token, SECRET_KEY, (err, decoded) => {
       if (err) {
         return res.status(401).json({ message: "Invalid token" });
       }
