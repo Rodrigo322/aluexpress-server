@@ -1,8 +1,12 @@
 import { House } from "@prisma/client";
 
+import { IUserRepository } from "../../Users/repositories/user-repository";
 import { IHouseRepository } from "../repositories/house-repository";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error";
-import { IUserRepository } from "../../Users/repositories/user-repository";
+
+interface Image {
+  url: string;
+}
 
 interface RegisterHouseUseCaseRequest {
   userId: string;
@@ -16,6 +20,7 @@ interface RegisterHouseUseCaseRequest {
   contract: boolean;
   contract_period?: number;
   water_and_electricity_included: boolean;
+  images: Image[];
 }
 
 interface RegisterHouseUseCaseResponse {
@@ -40,6 +45,7 @@ export class RegisterHouseUseCase {
     status,
     water_and_electricity_included,
     contract_period,
+    images,
   }: RegisterHouseUseCaseRequest): Promise<RegisterHouseUseCaseResponse> {
     const user = await this.userRepository.findById(userId);
 
@@ -63,6 +69,9 @@ export class RegisterHouseUseCase {
       status,
       water_and_electricity_included,
       contract_period,
+      Images: {
+        create: images,
+      },
     });
 
     return { house };
